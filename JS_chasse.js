@@ -32,7 +32,7 @@ function initTab() {
 	CTX = Math.floor(Math.random() * nbMax + 1);
 	CTY = Math.floor(Math.random() * nbMax + 1);
 
-	//Ajouter le trésor dans le tableau (en mémoire)
+	//Ajouter le trésor dans le tableau
 	TableauJeu[CTX][CTY] = tresorCarte;
 
 	//Création du tableau
