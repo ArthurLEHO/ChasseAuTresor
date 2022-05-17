@@ -51,8 +51,8 @@ function initTab() {
 }
 
 // choix() récupère les coordonnées de la case et traite l'évènement qui lui est associé
-function choix(idCase) {
-	CoordonneesTableau = idCase.split("-");
+function choix(numCase) {
+	CoordonneesTableau = numCase.split("-");
 	let coordonneeX = CoordonneesTableau[0];
 	let coordonneeY = CoordonneesTableau[1];
 	let Case = document.getElementById(coordonneeX + "-" + coordonneeY);
