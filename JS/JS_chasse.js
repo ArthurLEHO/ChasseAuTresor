@@ -1,8 +1,8 @@
 /*
 Auteur : Arthur Le Ho
-Version : 0.4
-Date : 15/05/2022
-Ce code permet de créer le tableau, de pouvoir cliquer sur les cases et d'afficher le résultat obtenu
+Version : 0.5
+Date : 18/05/2022
+Ce code permet de créer le tableau, de pouvoir cliquer sur les cases et d'afficher le résultat obtenu en fonction des évènements
 */
 let TableauJeu;
 let tresorCarte = "Trésor";
@@ -10,18 +10,31 @@ let nbMax = 9;
 let CTX;
 let CTY;
 let score;
+
+//Coordonnées des bonus et malus
 let malusX;
 let malusY;
+
 let malusX2;
 let malusY2;
+
+let malusX3;
+let malusY3;
+
+let malusX4;
+let malusY4;
+
 let bonusX;
 let bonusY;
+
 let bonusX2;
 let bonusY2;
-let Malus1 = "Malus1";
-let Malus2 = "Malus2";
-let Bonus1 = "Bonus1";
-let Bonus2 = "Bonus2";
+
+let bonusX3;
+let bonusY3;
+
+let bonusX4;
+let bonusY4;
 
 //Création du tableau 
 function Tableau2D(x, y) {
@@ -49,19 +62,32 @@ function initTab() {
 	malusY = Math.floor(Math.random() * nbMax + 1);
 	malusX2 = Math.floor(Math.random() * nbMax + 1);
 	malusY2 = Math.floor(Math.random() * nbMax + 1);
+	malusX3 = Math.floor(Math.random() * nbMax + 1);
+	malusY3 = Math.floor(Math.random() * nbMax + 1);
+	malusX4 = Math.floor(Math.random() * nbMax + 1);
+	malusY4 = Math.floor(Math.random() * nbMax + 1);
 
 	bonusX = Math.floor(Math.random() * nbMax + 1);
 	bonusY = Math.floor(Math.random() * nbMax + 1);
 	bonusX2 = Math.floor(Math.random() * nbMax + 1);
 	bonusY2 = Math.floor(Math.random() * nbMax + 1);
+	bonusX3 = Math.floor(Math.random() * nbMax + 1);
+	bonusY3 = Math.floor(Math.random() * nbMax + 1);
+	bonusX4 = Math.floor(Math.random() * nbMax + 1);
+	bonusY4 = Math.floor(Math.random() * nbMax + 1);
 	//Ajout du trésor dans le tableau
 	TableauJeu[CTX][CTY] = tresorCarte;
 
 	//Ajout des malus et bonus dans la tableau
-	TableauJeu[malusX][malusY] = Malus1;
-	TableauJeu[malusX2][malusY2] = Malus2;
-	TableauJeu[bonusX][bonusY] = Bonus1;
-	TableauJeu[bonusX2][bonusY2] = Bonus2;
+	TableauJeu[malusX][malusY] 
+	TableauJeu[malusX2][malusY2]
+	TableauJeu[malusX3][malusY3] 
+	TableauJeu[malusX4][malusY4]
+	
+	TableauJeu[bonusX][bonusY] 
+	TableauJeu[bonusX2][bonusY2]
+	TableauJeu[bonusX3][bonusY3] 
+	TableauJeu[bonusX4][bonusY4]
 
 	//Création des lignes et des colonnes du tableau
 	//Les lignes
@@ -96,14 +122,6 @@ function choix(numCase) {
 		//Possibilité de rejouer
 		document.getElementById("bouttonRejouer").innerHTML += '<button onclick="initTab()">Rejouer</button>';
 	}
-	else if (TableauJeu[coordonneeX][coordonneeY] == "Malus1" || "Malus2") {
-		score += 3;
-		Case.classList.add("Malus");
-	}
-	else if (TableauJeu[coordonneeX][coordonneeY] == "Bonus1" || "Bonus2") {
-		score -= 3;
-		Case.classList.add("Malus");
-	}
 	else {
 		//Evènements lorsque ce n'est pas la bonne case
 		if (coordonneeY == CTY) {
@@ -113,6 +131,42 @@ function choix(numCase) {
 		else if (coordonneeX == CTX) {
 			score += 1;
 			Case.classList.add("LigneOK");
+		}
+		else if (coordonneeX == malusX  && coordonneeY == malusY) {
+			score += 3;
+			Case.classList.add("Malus");
+		}
+		else if (coordonneeX == malusX2 && coordonneeY == malusY2) {
+			score += 3;
+			Case.classList.add("Malus");
+		}
+		else if (coordonneeX == malusX3  && coordonneeY == malusY3) {
+			score += 3;
+			Case.classList.add("Malus");
+		}
+		else if (coordonneeX == malusX4  && coordonneeY == malusY4) {
+			score += 3;
+			Case.classList.add("Malus");
+		}
+		else if (coordonneeX == bonusX  && coordonneeY == bonusY) {
+			score -= 3;
+			Case.classList.add("Bonus");
+		}
+		else if (coordonneeX == bonusX2 && coordonneeY == bonusY2) {
+			score -= 3;
+			Case.classList.add("Bonus");
+		}
+		else if (coordonneeX == bonusX2  && coordonneeY == bonusY2) {
+			score -= 3;
+			Case.classList.add("Bonus");
+		}
+		else if (coordonneeX == bonusX3  && coordonneeY == bonusY3) {
+			score -= 3;
+			Case.classList.add("Bonus");
+		}
+		else if (coordonneeX == bonusX4  && coordonneeY == bonusY4) {
+			score -= 3;
+			Case.classList.add("Bonus");
 		}
 		else {
 			Case.classList.add("MauvaiseCase");
