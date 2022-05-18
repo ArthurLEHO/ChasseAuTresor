@@ -62,4 +62,9 @@ td
 .MauvaiseCase {
     background-color: red;
 }
-   
+.Malus {
+    background-color: blueviolet;
+}  
+.Bonus {
+    background-color: blue;
+}

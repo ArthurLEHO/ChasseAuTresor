@@ -10,6 +10,18 @@ let nbMax = 9;
 let CTX;
 let CTY;
 let score;
+let malusX;
+let malusY;
+let malusX2;
+let malusY2;
+let bonusX;
+let bonusY;
+let bonusX2;
+let bonusY2;
+let Malus1 = "Malus1";
+let Malus2 = "Malus2";
+let Bonus1 = "Bonus1";
+let Bonus2 = "Bonus2";
 
 //Création du tableau 
 function Tableau2D(x, y) {
@@ -32,10 +44,26 @@ function initTab() {
 	CTX = Math.floor(Math.random() * nbMax + 1);
 	CTY = Math.floor(Math.random() * nbMax + 1);
 
-	//Ajouter le trésor dans le tableau
+	//Emplacement aléatoire bonus / malus
+	malusX = Math.floor(Math.random() * nbMax + 1);
+	malusY = Math.floor(Math.random() * nbMax + 1);
+	malusX2 = Math.floor(Math.random() * nbMax + 1);
+	malusY2 = Math.floor(Math.random() * nbMax + 1);
+
+	bonusX = Math.floor(Math.random() * nbMax + 1);
+	bonusY = Math.floor(Math.random() * nbMax + 1);
+	bonusX2 = Math.floor(Math.random() * nbMax + 1);
+	bonusY2 = Math.floor(Math.random() * nbMax + 1);
+	//Ajout du trésor dans le tableau
 	TableauJeu[CTX][CTY] = tresorCarte;
 
-	//Création du tableau
+	//Ajout des malus et bonus dans la tableau
+	TableauJeu[malusX][malusY] = Malus1;
+	TableauJeu[malusX2][malusY2] = Malus2;
+	TableauJeu[bonusX][bonusY] = Bonus1;
+	TableauJeu[bonusX2][bonusY2] = Bonus2;
+
+	//Création des lignes et des colonnes du tableau
 	//Les lignes
 	let ConstructionTableau = "";
 	for (let i = 0; i <= 9; i++) {
@@ -67,6 +95,14 @@ function choix(numCase) {
 		}
 		//Possibilité de rejouer
 		document.getElementById("bouttonRejouer").innerHTML += '<button onclick="initTab()">Rejouer</button>';
+	}
+	else if (TableauJeu[coordonneeX][coordonneeY] == "Malus1" || "Malus2") {
+		score += 3;
+		Case.classList.add("Malus");
+	}
+	else if (TableauJeu[coordonneeX][coordonneeY] == "Bonus1" || "Bonus2") {
+		score -= 3;
+		Case.classList.add("Malus");
 	}
 	else {
 		//Evènements lorsque ce n'est pas la bonne case
