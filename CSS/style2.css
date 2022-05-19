@@ -1,12 +1,12 @@
 body {
-    background-image: url("../Medias/acceuil.jpg");
-    font-size: 30px;
+    background-image: url("../Medias/jeux.jpg");
 }
 
 h1 {
     font-size: 30px;
     text-align: center;
     color: white;
+    font-family: 'Algerian';
 }
 
 #cadre {
@@ -28,9 +28,13 @@ button {
     border-width: 1px;
     border-style: solid;
     color: white;
+    font-family: 'Algerian';
 }
+
 div {
     color: white;
+    font-size: 25px;
+    font-family: 'Algerian';
 }
 
 /* Contexte pour bonus / malus */
@@ -38,6 +42,7 @@ div {
     color: white;
     text-align: center;
     background-color: rgb(129, 129, 129);
+    font-family: 'Algerian';
 }
 
 #tableau {

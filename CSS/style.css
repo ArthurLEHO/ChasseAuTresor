@@ -1,0 +1,30 @@
+body {
+    background-image: url("../Medias/acceuile.jpg");
+}
+
+h1 {
+    font-size: 30px;
+    text-align: center;
+    color: white;
+    font-family: 'Algerian';
+}
+
+#contexte {
+    font-family: 'Algerian';
+    margin-top: 150px;
+    font-size: 20px;
+    text-align: center;
+    color: white;
+}
+
+input {
+    width: 150px;
+    height: 75px;
+    background-color: rgb(129, 129, 129);
+    border-color: white;
+    border-width: 1px;
+    border-style: solid;
+    color: white;
+    margin-left: 750px;
+    margin-block-start: 100px;
+}
