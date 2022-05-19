@@ -1,6 +1,6 @@
 /*
 Auteur : Arthur Le Ho
-Version : 0.5
+Version : 0.6
 Date : 18/05/2022
 Ce code permet de créer le tableau, de pouvoir cliquer sur les cases et d'afficher le résultat obtenu en fonction des évènements
 */
@@ -110,6 +110,7 @@ function choix(numCase) {
 	let coordonneeX = CoordonneesTableau[0];
 	let coordonneeY = CoordonneesTableau[1];
 	let Case = document.getElementById(coordonneeX + "-" + coordonneeY);
+	let contexte = document.getElementById("texte")
 
 	if (TableauJeu[coordonneeX][coordonneeY] == "Trésor") {
 		score += 1;
@@ -135,38 +136,42 @@ function choix(numCase) {
 		else if (coordonneeX == malusX  && coordonneeY == malusY) {
 			score += 3;
 			Case.classList.add("Malus");
+			contexte = "Vous vous arrêtez à la taverne pour boire un coup, malheureusement vous finissez saoul (+3 coups)";
 		}
 		else if (coordonneeX == malusX2 && coordonneeY == malusY2) {
 			score += 3;
 			Case.classList.add("Malus");
+			contexte = "Une mutinerie s'organise parmis votre équipage. Vous devez agir avant de perdre plus de temps (+3 coups)";
 		}
 		else if (coordonneeX == malusX3  && coordonneeY == malusY3) {
 			score += 3;
 			Case.classList.add("Malus");
+			contexte = "Un perroquet vole la carte du trésor, vous partez à sa poursuite (+3 coups)";
 		}
 		else if (coordonneeX == malusX4  && coordonneeY == malusY4) {
 			score += 3;
 			Case.classList.add("Malus");
+			contexte = "Une prime est placez sur votre tête. Plusieurs pirates se mettent à votre recherche, vous décidez de vous cachez (+3 coups)";
 		}
 		else if (coordonneeX == bonusX  && coordonneeY == bonusY) {
 			score -= 3;
 			Case.classList.add("Bonus");
+			contexte = "Votre équipage décide de vous venir en aide dans votre recherche (-3 coups)";
 		}
 		else if (coordonneeX == bonusX2 && coordonneeY == bonusY2) {
 			score -= 3;
 			Case.classList.add("Bonus");
-		}
-		else if (coordonneeX == bonusX2  && coordonneeY == bonusY2) {
-			score -= 3;
-			Case.classList.add("Bonus");
+			contexte = "Un marchand vous propose d'acheter une boussole permettant de retrouver le trésor. Vous hésitez un moment. Finalement, vous décidez de lui faire confiance et de l'acheter (-3 coups)";
 		}
 		else if (coordonneeX == bonusX3  && coordonneeY == bonusY3) {
 			score -= 3;
 			Case.classList.add("Bonus");
+			contexte = "Durant vos recherches, vous trouvez un indice précisant le lieu où le trésor est caché (-3 coups)";
 		}
 		else if (coordonneeX == bonusX4  && coordonneeY == bonusY4) {
 			score -= 3;
 			Case.classList.add("Bonus");
+			contexte = "Vous décidez de vous associer avec un autre capitaine, il partage ses trouvailles avec vous (-3 coups)";
 		}
 		else {
 			Case.classList.add("MauvaiseCase");
