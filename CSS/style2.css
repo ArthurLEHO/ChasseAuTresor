@@ -1,72 +1,81 @@
-body
-{
+body {
     background-image: url("../Medias/acceuil.jpg");
-    font-size: 30px ;
+    font-size: 30px;
 }
 
-h1
-{
+h1 {
     font-size: 30px;
     text-align: center;
     color: white;
 }
 
-#cadre
-{
+#cadre {
     display: flex;
-    flex-direction:row ;
+    flex-direction: row;
     width: 100%;
 }
 
-#scoreBouton
-{
-    width: 50%;
+#scoreBouton {
+    display: inline;
+    text-align: center;
 }
 
-button
-{
+button {
+    width: 150px;
     height: 100px;
+    background-color: rgb(129, 129, 129);
+    border-color: white;
+    border-width: 1px;
+    border-style: solid;
+    color: white;
 }
-
-p 
-{
-    display:inline-block ;
+div {
     color: white;
 }
 
-#tableau
-{
+/* Contexte pour bonus / malus */
+#texte {
+    color: white;
+    text-align: center;
+    background-color: rgb(129, 129, 129);
+}
+
+#tableau {
     margin: 50px;
     margin-left: 400px;
     width: 900px;
-    height: 100px; 
+    height: 100px;
 }
-  
-td 
-{
-    width:50px;
-    height:50px;
+
+td {
+    width: 50px;
+    height: 50px;
     border-width: 1px;
     border-color: white;
     border-style: solid;
 }
 
 /* Couleurs des cases */
-.Tresor {
+.Tresor, #vert {
     background-color: green;
-}  
-.LigneOK  {
-    background-color:orange;
-}  
-.ColonneOK{
+}
+
+.LigneOK, #orange {
+    background-color: orange;
+}
+
+.ColonneOK, #jaune {
     background-color: yellow;
-}   
-.MauvaiseCase {
+}
+
+.MauvaiseCase, #rouge {
     background-color: red;
 }
-.Malus {
+
+.Malus, #violet {
     background-color: blueviolet;
-}  
-.Bonus {
+}
+
+.Bonus, #bleu {
     background-color: blue;
 }

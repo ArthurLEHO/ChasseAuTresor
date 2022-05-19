@@ -10,6 +10,7 @@ let nbMax = 9;
 let CTX;
 let CTY;
 let score;
+let contexte = "";
 
 //Coordonnées des bonus et malus
 let malusX;
@@ -110,11 +111,11 @@ function choix(numCase) {
 	let coordonneeX = CoordonneesTableau[0];
 	let coordonneeY = CoordonneesTableau[1];
 	let Case = document.getElementById(coordonneeX + "-" + coordonneeY);
-	let contexte = document.getElementById("texte")
 
 	if (TableauJeu[coordonneeX][coordonneeY] == "Trésor") {
 		score += 1;
 		Case.classList.add("Tresor");
+		contexte = "Vous avez trouvé le trésor";
 		let TableauColonne = document.getElementsByClassName("caseCarte");
 		//Empêche de recliquer sur la case
 		for (let i = 0; i < TableauColonne.length; i++) {
@@ -128,10 +129,12 @@ function choix(numCase) {
 		if (coordonneeY == CTY) {
 			score += 1;
 			Case.classList.add("ColonneOK");
+			contexte = "Bonne colonne";
 		}
 		else if (coordonneeX == CTX) {
 			score += 1;
 			Case.classList.add("LigneOK");
+			contexte = "Bonne ligne";
 		}
 		else if (coordonneeX == malusX  && coordonneeY == malusY) {
 			score += 3;
@@ -176,8 +179,10 @@ function choix(numCase) {
 		else {
 			Case.classList.add("MauvaiseCase");
 			score += 1;
+			contexte = "Mauvaise case";
 		}
 	}
+	document.getElementById("texte").innerHTML = contexte
 	//Afficher le nouveau score
 	document.getElementById('score').innerHTML = score;
 }
